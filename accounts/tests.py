@@ -2,27 +2,33 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
-class UsersManagersTests(TestCase):
+class CreatUsersTests(TestCase):
 
     def test_create_user(self):
-        User = get_user_model()
-        user = User.objects.create_user(
+        self.user = get_user_model().objects.create_user(
             username = 'fadi',
             email='fadi@gmail.com',
-            password='fadi000000'
+            password='fadi000000',
+            first_name = 'fadi',
+            last_name = 'hb'
         )
-        self.assertEqual(user.email, 'fadi@gmail.com')
+        self.assertEqual(self.user.email, 'fadi@gmail.com')
 
     def test_create_duplicate_user(self):        
-        User = get_user_model()
-        User.objects.create_user(
+        self.user = get_user_model().objects.create_user(
             username = 'fadi', 
             email='fadi@gmail.com', 
-            password='fadi123456'
+            password='fadi123456',
+            first_name = 'fadi',
+            last_name = 'hb'
         )
 
         
     def test_create_none_user(self):
-        User = get_user_model()
-        with self.assertRaises(Exception):
-            User.objects.create_user(username = '', email='', password="fadi123456")
+        self.user = get_user_model().objects.create_user(
+            username = '', 
+            email='', 
+            password='',
+            first_name = '',
+            last_name = ''
+        )
