@@ -9,7 +9,5 @@ class CreateUsersTests(TestCase):
             username = 'fadi',
             email='fadi@gmail.com',
             password='fadi000000',
-            first_name = 'fadi',
-            last_name = 'hb'
         )
         self.assertEqual(self.user.email, 'fadi@gmail.com')
