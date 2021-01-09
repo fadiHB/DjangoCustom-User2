@@ -10,11 +10,9 @@ class UsersManagersTests(TestCase):
         self.assertEqual(user.email, 'fadi@gmail.com')
 
     def test_create_duplicate_user(self):        
-        try:
-            User = get_user_model()
-            User.objects.create_user(username = 'fadi', email='fadi@gmail.com', password='fadi123456')
-        except Exception as e:
-            print(e)
+        User = get_user_model()
+        User.objects.create_user(username = 'fadi', email='fadi@gmail.com', password='fadi123456')
+
         
     def test_create_none_user(self):
         User = get_user_model()
