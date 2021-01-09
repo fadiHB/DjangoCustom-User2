@@ -6,12 +6,20 @@ class UsersManagersTests(TestCase):
 
     def test_create_user(self):
         User = get_user_model()
-        user = User.objects.create_user(username = 'fadi', email='fadi@gmail.com', password='fadi000000')
+        user = User.objects.create_user(
+            username = 'fadi',
+            email='fadi@gmail.com',
+            password='fadi000000'
+        )
         self.assertEqual(user.email, 'fadi@gmail.com')
 
     def test_create_duplicate_user(self):        
         User = get_user_model()
-        User.objects.create_user(username = 'fadi', email='fadi@gmail.com', password='fadi123456')
+        User.objects.create_user(
+            username = 'fadi', 
+            email='fadi@gmail.com', 
+            password='fadi123456'
+        )
 
         
     def test_create_none_user(self):
